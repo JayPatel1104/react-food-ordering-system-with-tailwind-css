@@ -1,0 +1,27 @@
+{
+  "name": "food-ordering-app",
+  "version": "1.0.0",
+  "description": "a food ordering app which helps to search, save and order from the resturants",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "keywords": [
+    "resturant",
+    "food",
+    "ordering",
+    "app",
+    "order",
+    "food"
+  ],
+  "author": "Jay Patel",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.11.0"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
