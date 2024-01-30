@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap");
+
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Bree Serif", serif;
+}
+
+.img-logo {
+  height: 75px;
+  width: 75px;
+  padding: 5px;
+}
+
+.logo-container {
+  width: 70%;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  background-color: #fcd4d5;
+}
+
+.nav-items {
+  display: flex;
+  width: 50%;
+}
+
+ul {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+li {
+  list-style: none;
+  font-size: 22px;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bolder;
+  color: #f46464;
+}
+
+.rest-card {
+  border: 1px solid #f46464;
+  padding: 10px;
+  margin: 15px;
+  border-radius: 15px;
+}
+
+.rest-name {
+  color: #fc6468;
+}
+
+.rest-container {
+  width: 100%;
+  display: flex;
+  justify-content: safe;
+  margin: 0px;
+  padding: 0px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.search-bar {
+  width: 100%;
+}
+.search-text-field {
+  width: 80%;
+  height: 30px;
+  border-radius: 5px;
+  margin: 10px;
+  color: #f46464;
+  font-size: 20px;
+  border: 2px solid #f46464;
+  padding: 5px;
+}
+
+.search-button {
+  width: 15%;
+  font-size: 20px;
+  height: 40px;
+  border-radius: 5px;
+  margin: 10px;
+  background-color: white;
+  color: #f46464;
+  font-weight: bolder;
+  border: 2px solid #f46464;
+}
+
+input::placeholder {
+  color: #f46464;
+}
+
+.search-button:hover {
+  background-color: #fcd4d5;
+}
+
+.rest-img {
+  width: 100%;
+  margin-top: 10px;
+  height: 135px;
+}
