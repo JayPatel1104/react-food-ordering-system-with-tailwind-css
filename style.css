@@ -26,6 +26,7 @@
 .nav-items {
   display: flex;
   width: 50%;
+  margin-right: 20px;
 }
 
 ul {
@@ -49,6 +50,7 @@ a {
 
 .rest-card {
   border: 1px solid #f46464;
+  max-width: 200px;
   padding: 10px;
   margin: 15px;
   border-radius: 15px;
@@ -112,4 +114,16 @@ input::placeholder {
   width: 100%;
   margin-top: 10px;
   height: 135px;
+}
+
+#icon-timer {
+  padding-right: 5px;
+  color: green;
+  font-weight: bolder;
+}
+
+#icon-star {
+  padding-right: 5px;
+  color: #ffee00;
+  font-weight: bolder;
 }
