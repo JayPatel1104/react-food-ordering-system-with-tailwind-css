@@ -9,3 +9,25 @@ Please run the following commands before executing this app:
 Use the following command to execute this app:
 
 npm start
+
+# wireframe
+
+Header
+-Logo
+-Links
+
+Body
+-Search
+-RestaurantContainer
+-RestaurantCard
+-Image
+-Name of Restaurant
+-Star Rating
+-Cuisine
+-Delievery Time
+
+Footer
+-CopyRight
+-Links
+-Address
+-Contact

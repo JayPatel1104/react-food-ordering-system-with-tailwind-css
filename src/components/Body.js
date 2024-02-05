@@ -1,6 +1,5 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import logo from "./logo.png";
+import SearchBar from "./SearchBar";
+import ResturantCard from "./ResturantCard";
 
 const resList = [
   // Res-1
@@ -878,83 +877,6 @@ const resList = [
   // Res
 ];
 
-const Header = () => {
-  return (
-    <div className="header">
-      <div className="logo-container">
-        <img src={logo} className="img-logo"></img>
-      </div>
-      <div className="nav-items">
-        <ul>
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#">About Us</a>
-          </li>
-          <li>
-            <a href="#">Contact Us</a>
-          </li>
-          <li>
-            <a href="#">Cart</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-const ResturantCard = (props) => {
-  const { resData } = props;
-
-  const { cloudinaryImageId, name, avgRating, costForTwo, cuisines } =
-    resData?.info;
-
-  return (
-    <div className="rest-card">
-      <h2 className="rest-name">{name}</h2>
-      <img
-        src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          cloudinaryImageId
-        }
-        alt={{ name } + "image"}
-        className="rest-img"
-      />
-      <h4 className="rest-name">{costForTwo}</h4>
-      <h4 className="rest-name">{cuisines.join(", ")}</h4>
-      <h4 className="rest-name">
-        <i className="fa-regular fa-star" id="icon-star"></i>
-        {avgRating}
-      </h4>
-      <h4 className="rest-name">
-        <i className="fa-regular fa-clock" id="icon-timer"></i>
-        {String(resData.info.sla.deliveryTime) + " minutes"}
-      </h4>
-
-      {/* <h1 className="rest-name"> {props.name} </h1>
-
-      
-      <h3 className="rest-name">{props.cuisine}</h3>
-      
-       */}
-    </div>
-  );
-};
-
-const SearchBar = () => {
-  return (
-    <div className="search-bar">
-      <input
-        type="text"
-        className="search-text-field"
-        placeholder="Find your favourite Resturants"
-      />
-      <button className="search-button">Search</button>
-    </div>
-  );
-};
-
 const Body = () => {
   return (
     <div className="body">
@@ -969,14 +891,4 @@ const Body = () => {
   );
 };
 
-const Applayout = () => {
-  return (
-    <div className="app">
-      <Header></Header>
-      <Body></Body>
-    </div>
-  );
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Applayout></Applayout>);
+export default Body;
