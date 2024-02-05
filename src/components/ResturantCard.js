@@ -1,3 +1,5 @@
+import { REST_IMG_URL } from "../utils/constants";
+
 const ResturantCard = (props) => {
   const { resData } = props;
 
@@ -8,10 +10,7 @@ const ResturantCard = (props) => {
     <div className="rest-card">
       <h2 className="rest-name">{name}</h2>
       <img
-        src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          cloudinaryImageId
-        }
+        src={REST_IMG_URL + cloudinaryImageId}
         alt={{ name } + "image"}
         className="rest-img"
       />
