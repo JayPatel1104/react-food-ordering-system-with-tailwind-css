@@ -101,11 +101,30 @@ a {
   border: 2px solid #f46464;
 }
 
+.filter {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+.filter-button {
+  font-size: 20px;
+  padding-right: 10px;
+  padding-left: 10px;
+  height: 40px;
+  border-radius: 5px;
+  margin: 10px;
+  background-color: white;
+  color: #f46464;
+  font-weight: bolder;
+  border: 2px solid #f46464;
+}
+
 input::placeholder {
   color: #f46464;
 }
 
-.search-button:hover {
+.search-button:hover,
+.filter-button:hover {
   background-color: #fcd4d5;
 }
 
