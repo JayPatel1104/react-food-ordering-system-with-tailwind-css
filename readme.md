@@ -43,3 +43,11 @@ Footer
    import <variable name> from <path>
 
 Note : We can also export component using named component by using export keyword before the component name
+
+#react hooks
+hooks are nothing but normal javascript function
+
+important hooks:
+
+1. useState();
+2. useEffects();
