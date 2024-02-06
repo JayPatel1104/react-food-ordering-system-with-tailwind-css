@@ -31,3 +31,15 @@ Footer
 -Links
 -Address
 -Contact
+
+# imports and exports
+
+1. Default import export:
+   export default <component name>
+   import <component name> from <path>
+
+2. Named import export:
+   export <variable name> = <assigned value>
+   import <variable name> from <path>
+
+Note : We can also export component using named component by using export keyword before the component name
