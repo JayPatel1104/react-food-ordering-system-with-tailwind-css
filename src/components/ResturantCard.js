@@ -8,7 +8,7 @@ const ResturantCard = (props) => {
 
   return (
     <div className="rest-card">
-      <h2 className="rest-name">{name}</h2>
+      <h2 className="rest-name heading">{name}</h2>
       <img
         src={REST_IMG_URL + cloudinaryImageId}
         alt={{ name } + "image"}

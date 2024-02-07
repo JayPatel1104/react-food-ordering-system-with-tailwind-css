@@ -1,1 +1,1 @@
-Content
+Whenever a state variable changes, react will re-render all the elements
