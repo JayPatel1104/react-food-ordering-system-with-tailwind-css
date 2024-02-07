@@ -1,1 +1,5 @@
 Whenever a state variable changes, react will re-render all the elements
+
+how react works at behind the scenes:
+
+https://github.com/acdlite/react-fiber-architecture
