@@ -32,6 +32,27 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
+      <div className="search-bar">
+        <input
+          type="text"
+          className="search-text-field"
+          id="txtSearchText"
+          placeholder="Find your favourite Resturants"
+        />
+        <button
+          className="search-button"
+          onClick={() => {
+            const serach = document.getElementById("txtSearchText").value;
+            let filteredList = listOfRestaurants.filter(
+              (res) => res.info.name == serach
+            );
+            if (filteredList.length != 0) setlistOfRestaurants(filteredList);
+          }}
+        >
+          Search
+        </button>
+      </div>
+
       <div className="filter">
         <button
           className="filter-button"
