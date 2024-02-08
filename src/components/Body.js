@@ -1,14 +1,32 @@
 import SearchBar from "./SearchBar";
 import ResturantCard from "./ResturantCard";
 import resList from "../utils/mockData";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Body = () => {
   // //normal javasript variable
-  // let topRatedRests = resList;
+  // let listOfRestaurants = resList;
 
   //state variable
-  const [topRatedRests, setTopRatedRests] = useState(resList);
+  const [listOfRestaurants, setlistOfRestaurants] = useState(resList);
+
+  //two arguments, first is arrow function, second is dependency array
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1702401&lng=72.83106070000001&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+
+    const json = await data.json();
+
+    // console.log(json)
+    setlistOfRestaurants(
+      json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
+    );
+  };
 
   return (
     <div className="body">
@@ -17,10 +35,10 @@ const Body = () => {
         <button
           className="filter-button"
           onClick={() => {
-            let filteredList = topRatedRests.filter(
+            let filteredList = listOfRestaurants.filter(
               (res) => res.info.avgRating >= 4.4
             );
-            setTopRatedRests(filteredList);
+            setlistOfRestaurants(filteredList);
           }}
         >
           Top Rated Resturants
@@ -28,7 +46,7 @@ const Body = () => {
       </div>
 
       <div className="rest-container">
-        {topRatedRests.map((resturant) => (
+        {listOfRestaurants.map((resturant) => (
           <ResturantCard resData={resturant} key={resturant.info.id} />
         ))}
       </div>

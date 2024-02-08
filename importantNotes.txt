@@ -3,3 +3,13 @@ Whenever a state variable changes, react will re-render all the elements
 how react works at behind the scenes:
 
 https://github.com/acdlite/react-fiber-architecture
+
+Monolith and Mirco service architecture
+
+# ways of using api call
+
+1. Page loads -> call api -> render the components using api data
+
+2. page loads -> render the components -> api call -> re-render the components using api data
+
+Important Note: The (2) second approach should be used as it is the best approach, because until the api call is completed user will see atleast some UI so that we can get better user expierence
