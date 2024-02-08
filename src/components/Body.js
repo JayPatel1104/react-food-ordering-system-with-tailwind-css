@@ -24,10 +24,13 @@ const Body = () => {
 
     // console.log(json)
     setlistOfRestaurants(
-      json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
+      //optinal chaining
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
-
+  if (listOfRestaurants.length === 0) {
+    return <div class="loader"></div>;
+  }
   return (
     <div className="body">
       <SearchBar></SearchBar>
