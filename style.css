@@ -76,12 +76,33 @@ a {
   flex-basis: calc(33.33% - 10px); /* Set the initial size of each item */
   margin: 5px;
 }
+.shimmer-card {
+  max-width: 200px;
+  height: 275px;
+  padding: 10px;
+  margin: 15px;
+  border-radius: 15px;
+  border: 1px solid #fc6468;
+  flex-grow: 1; /* Allow items to grow to fill the space equally */
+  flex-basis: calc(33.33% - 10px); /* Set the initial size of each item */
+  margin: 5px;
+  background-color: #fcd4d5;
+}
 
 .rest-name {
   color: #fc6468;
 }
 
 .rest-container {
+  width: 100%;
+  display: flex;
+  justify-content: safe;
+  margin: 0px;
+  padding: 0px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.shimmer-container {
   width: 100%;
   display: flex;
   justify-content: safe;

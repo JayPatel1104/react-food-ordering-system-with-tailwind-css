@@ -1,6 +1,5 @@
-import SearchBar from "./SearchBar";
 import ResturantCard from "./ResturantCard";
-import resList from "../utils/mockData";
+import Shimmer from "./Shimmer";
 import { useState, useEffect } from "react";
 
 const Body = () => {
@@ -29,11 +28,10 @@ const Body = () => {
     );
   };
   if (listOfRestaurants.length === 0) {
-    return <div class="loader"></div>;
+    return <Shimmer />;
   }
   return (
     <div className="body">
-      <SearchBar></SearchBar>
       <div className="filter">
         <button
           className="filter-button"
