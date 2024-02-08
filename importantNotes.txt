@@ -13,3 +13,10 @@ Monolith and Mirco service architecture
 2. page loads -> render the components -> api call -> re-render the components using api data
 
 Important Note: The (2) second approach should be used as it is the best approach, because until the api call is completed user will see atleast some UI so that we can get better user expierence
+
+# IMP's
+
+1. CORS
+2. How React works
+3. Optional Chaining
+4. Monolith and Micro serice architecture
