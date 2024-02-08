@@ -24,3 +24,5 @@ Important Note: The (2) second approach should be used as it is the best approac
 6. Map, Filter, Reduce
 7. Promises
 8. Async Await
+
+Whenever there is a change in state variable, react re-renders whole component

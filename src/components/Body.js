@@ -8,6 +8,9 @@ const Body = () => {
 
   //state variable
   const [listOfRestaurants, setlistOfRestaurants] = useState([]);
+  const [searchText, setSearchText] = useState("");
+  const [filteredResturants, setFilteredResturants] = useState([]);
+  const [filterButton, setFilterButton] = useState("Top Rated Resturants");
 
   //two arguments, first is arrow function, second is dependency array
   useEffect(() => {
@@ -26,6 +29,10 @@ const Body = () => {
       //optinal chaining
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+    setFilteredResturants(
+      //optinal chaining
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
 
   return listOfRestaurants.length === 0 ? (
@@ -37,16 +44,19 @@ const Body = () => {
           type="text"
           className="search-text-field"
           id="txtSearchText"
+          value={searchText}
+          onChange={(e) => {
+            setSearchText(e.target.value);
+          }}
           placeholder="Find your favourite Resturants"
         />
         <button
           className="search-button"
           onClick={() => {
-            const serach = document.getElementById("txtSearchText").value;
-            let filteredList = listOfRestaurants.filter(
-              (res) => res.info.name == serach
+            const filteredList = listOfRestaurants.filter((res) =>
+              res.info.name.toLowerCase().includes(searchText.toLowerCase())
             );
-            if (filteredList.length != 0) setlistOfRestaurants(filteredList);
+            setFilteredResturants(filteredList);
           }}
         >
           Search
@@ -57,18 +67,25 @@ const Body = () => {
         <button
           className="filter-button"
           onClick={() => {
-            let filteredList = listOfRestaurants.filter(
-              (res) => res.info.avgRating >= 4.4
-            );
-            setlistOfRestaurants(filteredList);
+            let filteredList = null;
+            if (filterButton === "Top Rated Resturants") {
+              setFilterButton("Show All Resturants");
+              filteredList = listOfRestaurants.filter(
+                (res) => res.info.avgRating >= 4.4
+              );
+              setFilteredResturants(filteredList);
+            } else {
+              setFilterButton("Top Rated Resturants");
+              setFilteredResturants(listOfRestaurants);
+            }
           }}
         >
-          Top Rated Resturants
+          {filterButton}
         </button>
       </div>
 
       <div className="rest-container">
-        {listOfRestaurants.map((resturant) => (
+        {filteredResturants.map((resturant) => (
           <ResturantCard resData={resturant} key={resturant.info.id} />
         ))}
       </div>
