@@ -20,3 +20,7 @@ Important Note: The (2) second approach should be used as it is the best approac
 2. How React works
 3. Optional Chaining
 4. Monolith and Micro serice architecture
+5. Promises
+6. Map, Filter, Reduce
+7. Promises
+8. Async Await
