@@ -8,7 +8,7 @@ const Body = () => {
   // let listOfRestaurants = resList;
 
   //state variable
-  const [listOfRestaurants, setlistOfRestaurants] = useState(resList);
+  const [listOfRestaurants, setlistOfRestaurants] = useState([]);
 
   //two arguments, first is arrow function, second is dependency array
   useEffect(() => {
