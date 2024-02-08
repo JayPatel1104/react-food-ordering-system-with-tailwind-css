@@ -56,6 +56,11 @@ const Body = () => {
             const filteredList = listOfRestaurants.filter((res) =>
               res.info.name.toLowerCase().includes(searchText.toLowerCase())
             );
+
+            if (filteredList.length == 0) {
+              setFilteredResturants(listOfRestaurants);
+              return;
+            }
             setFilteredResturants(filteredList);
           }}
         >
