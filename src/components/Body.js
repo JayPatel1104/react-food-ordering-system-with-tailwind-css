@@ -12,7 +12,6 @@ const Body = () => {
   const [filteredResturants, setFilteredResturants] = useState([]);
   const [filterButton, setFilterButton] = useState("Top Rated Resturants");
 
-  //two arguments, first is arrow function, second is dependency array
   useEffect(() => {
     fetchData();
   }, []);

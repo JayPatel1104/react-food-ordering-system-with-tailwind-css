@@ -26,3 +26,10 @@ Important Note: The (2) second approach should be used as it is the best approac
 8. Async Await
 
 Whenever there is a change in state variable, react re-renders whole component
+
+# useEffect
+
+1. two arguments, first is arrow function, second is dependency array
+2. if no dependency array, then useffect will be called on every render
+3. if the useEffect has an empty dependency array then it will be called only on the first rendering of the component
+4. If there is an dependency array, then useEffect will be called everytime the array will change
