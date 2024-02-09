@@ -209,3 +209,57 @@ h2.rest-name.heading {
   display: flex;
   align-items: end;
 }
+
+.about-us-container {
+  margin: 20px;
+  border-radius: 15px;
+  border: 1px solid #fc6468;
+  color: #f46464;
+  padding: 20px;
+}
+
+.contact-container {
+  margin: 20px;
+  color: #fc6468;
+}
+
+.pageTitle {
+  color: #f46464;
+}
+
+.contactForm {
+  max-width: 600px;
+  margin-top: 20px;
+}
+
+.formLabel {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.formInput,
+.formTextarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #fc6468;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.submitButton {
+  background-color: #f46464;
+  font-size: 20px;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  background-color: #fcd4d5;
+  color: #f46464;
+}
+
+.contactInfo {
+  margin-top: 20px;
+}

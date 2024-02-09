@@ -2,16 +2,34 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
+import Contact from "./components/Contact";
+import Error from "./components/Error";
+
+import {
+  BrowserRouter,
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import About from "./components/About";
 
 const Applayout = () => {
   return (
     <div className="app">
       <Header></Header>
-
       <Body></Body>
     </div>
   );
 };
 
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <Applayout></Applayout>,
+    errorElement: <Error></Error>,
+  },
+  { path: "/about", element: <About></About> },
+  { path: "/contact", element: <Contact></Contact> },
+]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Applayout></Applayout>);
+root.render(<RouterProvider router={appRouter}></RouterProvider>);
