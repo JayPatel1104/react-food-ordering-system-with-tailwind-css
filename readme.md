@@ -53,3 +53,8 @@ important hooks:
 
 1. useState();
 2. useEffects();
+
+# types of routing:
+
+1. Client Side Routing
+2. Server Side Routing

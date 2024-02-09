@@ -100,7 +100,7 @@ a {
   margin: 0px;
   padding: 0px;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 }
 .shimmer-container {
   width: 100%;
