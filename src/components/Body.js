@@ -1,6 +1,7 @@
 import ResturantCard from "./ResturantCard";
 import Shimmer from "./Shimmer";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   // //normal javasript variable
@@ -14,7 +15,7 @@ const Body = () => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  });
 
   const fetchData = async () => {
     const data = await fetch(
@@ -32,6 +33,7 @@ const Body = () => {
       //optinal chaining
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+    console.log(listOfRestaurants);
   };
 
   return listOfRestaurants.length === 0 ? (
@@ -43,9 +45,16 @@ const Body = () => {
           type="text"
           className="search-text-field"
           id="txtSearchText"
-          value={searchText}
           onChange={(e) => {
-            setSearchText(e.target.value);
+            const filteredList = listOfRestaurants.filter((res) =>
+              res.info.name.toLowerCase().includes(e.target.value.toLowerCase())
+            );
+
+            if (filteredList.length == 0) {
+              setFilteredResturants(listOfRestaurants);
+              return;
+            }
+            setFilteredResturants(filteredList);
           }}
           placeholder="Find your favourite Resturants"
         />
@@ -90,7 +99,9 @@ const Body = () => {
 
       <div className="rest-container">
         {filteredResturants.map((resturant) => (
-          <ResturantCard resData={resturant} key={resturant.info.id} />
+          <Link to={"/resturant/" + resturant.info.id}>
+            <ResturantCard resData={resturant} key={resturant.info.id} />
+          </Link>
         ))}
       </div>
     </div>
