@@ -33,3 +33,6 @@ Whenever there is a change in state variable, react re-renders whole component
 2. if no dependency array, then useffect will be called on every render
 3. if the useEffect has an empty dependency array then it will be called only on the first rendering of the component
 4. If there is an dependency array, then useEffect will be called everytime the array will change
+
+# Single Responsibility Principle
+
