@@ -106,7 +106,7 @@ a {
   width: 100%;
   display: flex;
   justify-content: safe;
-  margin: 0px;
+  margin: 20px;
   padding: 0px;
   flex-wrap: wrap;
   justify-content: space-between;
