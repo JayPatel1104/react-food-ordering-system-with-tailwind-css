@@ -23,6 +23,7 @@ const ResturantMenu = () => {
     );
 
     setRestDetails(json.data.cards[0].card.card.info);
+
     console.log(restDetails);
   };
 
@@ -30,7 +31,7 @@ const ResturantMenu = () => {
     <Shimmer />
   ) : (
     <div style={{ margin: "100px" }}>
-      {typeof restDetails == "undefined" ? (
+      {restDetails ? (
         <div>
           <img
             src={REST_IMG_URL + restDetails.cloudinaryImageId}
@@ -56,7 +57,6 @@ const ResturantMenu = () => {
         <h1>Unable to show resturant details</h1>
       )}
 
-      {console.log(typeof restMenu)}
       {typeof restMenu == "undefined" ? (
         <div
           className="error-container"
