@@ -4,30 +4,14 @@ import { REST_IMG_URL } from "../utils/constants";
 import { useParams } from "react-router";
 import { REST_MENU_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
+import { useResturantMenu } from "../utils/useResturantMenu";
 
 const ResturantMenu = () => {
-  const [restDetails, setRestDetails] = useState([]);
-  const [restMenu, setRestMenu] = useState([]);
+  const [restDetails, setRestDetails] = useState(useResturantMenu());
+  const [restMenu, setRestMenu] = useState();
   const { resId } = useParams();
 
-  useEffect(() => {
-    fetchMenu();
-  }, []);
-
-  const fetchMenu = async () => {
-    const data = await fetch(REST_MENU_URL + resId);
-    const json = await data.json();
-    setRestMenu(
-      json.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card
-        .itemCards
-    );
-
-    setRestDetails(json.data.cards[0].card.card.info);
-
-    console.log(restDetails);
-  };
-
-  return restMenu.length == 0 ? (
+  return restMenu == null ? (
     <Shimmer />
   ) : (
     <div style={{ margin: "100px" }}>
@@ -56,8 +40,7 @@ const ResturantMenu = () => {
       ) : (
         <h1>Unable to show resturant details</h1>
       )}
-
-      {typeof restMenu == "undefined" ? (
+      {restMenu ? (
         <div
           className="error-container"
           style={{ textAlign: "center", padding: "50px", color: "#fc6468" }}

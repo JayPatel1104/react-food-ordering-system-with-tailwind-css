@@ -15,7 +15,7 @@ const Body = () => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  });
 
   const fetchData = async () => {
     const data = await fetch(
@@ -36,7 +36,7 @@ const Body = () => {
     console.log(listOfRestaurants);
   };
 
-  return listOfRestaurants.length === 0 ? (
+  return typeof listOfRestaurants == "undefined" ? (
     <Shimmer />
   ) : (
     <div className="body">

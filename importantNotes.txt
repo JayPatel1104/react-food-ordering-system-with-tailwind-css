@@ -36,3 +36,4 @@ Whenever there is a change in state variable, react re-renders whole component
 
 # Single Responsibility Principle
 
+    
