@@ -24,7 +24,6 @@ const Body = () => {
 
     const json = await data.json();
 
-    // console.log(json)
     setlistOfRestaurants(
       //optinal chaining
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
@@ -33,7 +32,6 @@ const Body = () => {
       //optinal chaining
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
-    console.log(listOfRestaurants);
   };
 
   return typeof listOfRestaurants == "undefined" ? (
@@ -99,7 +97,7 @@ const Body = () => {
 
       <div className="rest-container">
         {filteredResturants.map((resturant) => (
-          <Link to={"/resturant/" + resturant.info.id}>
+          <Link to={"/resturant/" + resturant.info.id} key={resturant.info.id}>
             <ResturantCard resData={resturant} key={resturant.info.id} />
           </Link>
         ))}

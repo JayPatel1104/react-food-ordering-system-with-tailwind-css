@@ -1,62 +1,48 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import useResturantInfo from "../utils/useResturantInfo.js";
 import { REST_IMG_URL } from "../utils/constants";
 import { useParams } from "react-router";
-import { REST_MENU_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
-import { useResturantMenu } from "../utils/useResturantMenu";
 
 const ResturantMenu = () => {
-  const [restDetails, setRestDetails] = useState(useResturantMenu());
-  const [restMenu, setRestMenu] = useState();
   const { resId } = useParams();
+  const restInfo = useResturantInfo(resId);
 
-  return restMenu == null ? (
-    <Shimmer />
-  ) : (
+  if (restInfo === null) return <Shimmer></Shimmer>;
+  console.log(restInfo?.cards[0]?.card.card.info);
+
+  const { name, cuisines, areaName, avgRating, cloudinaryImageId } =
+    restInfo?.cards[0]?.card?.card?.info;
+
+  return (
     <div style={{ margin: "100px" }}>
-      {restDetails ? (
-        <div>
-          <img
-            src={REST_IMG_URL + restDetails.cloudinaryImageId}
-            alt={"image"}
-            className="rest-img"
-            style={{ height: "200px", width: "200px" }}
-          />
-          <h1 className="rest-name">{restDetails.name}</h1>
-          <h3 className="rest-name">{restDetails.cuisines.join(", ")}</h3>
+      <div>
+        <img
+          src={REST_IMG_URL + cloudinaryImageId}
+          alt={"image"}
+          className="rest-img"
+          style={{ height: "200px", width: "200px" }}
+        />
+        <h1 className="rest-name">{name}</h1>
+        <h3 className="rest-name">{cuisines.join(", ")}</h3>
 
-          <h3 className="rest-name">{restDetails.areaName}</h3>
+        <h3 className="rest-name">{areaName}</h3>
 
-          <h4 className="rest-name">
-            <i className="fa-regular fa-star" id="icon-star"></i>
-            {restDetails.avgRating}
-          </h4>
-          <h4 className="rest-name">
-            <i className="fa-regular fa-clock" id="icon-timer"></i>
-            {String(restDetails.sla.deliveryTime) + " minutes"}
-          </h4>
-        </div>
-      ) : (
-        <h1>Unable to show resturant details</h1>
-      )}
-      {restMenu ? (
-        <div
-          className="error-container"
-          style={{ textAlign: "center", padding: "50px", color: "#fc6468" }}
-        >
-          <p>
-            Oops! The page you are looking for might be unavailable or does not
-            exist.
-          </p>
-          <p>
-            Please check the URL or go back to the <a href="/">homepage</a>.
-          </p>
-        </div>
-      ) : (
-        <table>
-          <tbody>
-            {restMenu.map((res) => (
+        <h4 className="rest-name">
+          <i className="fa-regular fa-star" id="icon-star"></i>
+          {avgRating}
+        </h4>
+        <h4 className="rest-name">
+          <i className="fa-regular fa-clock" id="icon-timer"></i>
+          {String(restInfo.cards[0].card.card.info.sla.deliveryTime) +
+            " minutes"}
+        </h4>
+      </div>
+
+      <table>
+        <tbody>
+          {restInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards.map(
+            (res) => (
               <tr key={res.card.info.id}>
                 <td className="rest-name">
                   {res.card.info.isVeg ? (
@@ -88,10 +74,10 @@ const ResturantMenu = () => {
                   />
                 </td>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
+            )
+          )}
+        </tbody>
+      </table>
     </div>
   );
 };
