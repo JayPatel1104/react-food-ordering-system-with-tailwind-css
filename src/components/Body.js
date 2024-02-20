@@ -2,6 +2,7 @@ import ResturantCard from "./ResturantCard";
 import Shimmer from "./Shimmer";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import useOnlineStaus from "../utils/useOnlineStatus";
 
 const Body = () => {
   // //normal javasript variable
@@ -15,7 +16,7 @@ const Body = () => {
 
   useEffect(() => {
     fetchData();
-  });
+  }, []);
 
   const fetchData = async () => {
     const data = await fetch(
@@ -34,7 +35,17 @@ const Body = () => {
     );
   };
 
-  return typeof listOfRestaurants == "undefined" ? (
+  let onlineStatus = useOnlineStaus();
+  console.log(onlineStatus);
+  if (onlineStatus === false)
+    return (
+      <h1>
+        Looks like your internet connection is not working, please check it
+      </h1>
+    );
+
+  return typeof listOfRestaurants === "undefined" ||
+    listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
@@ -48,7 +59,7 @@ const Body = () => {
               res.info.name.toLowerCase().includes(e.target.value.toLowerCase())
             );
 
-            if (filteredList.length == 0) {
+            if (filteredList.length === 0) {
               setFilteredResturants(listOfRestaurants);
               return;
             }
