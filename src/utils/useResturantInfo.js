@@ -10,9 +10,9 @@ const useResturantInfo = (resId) => {
 
   const fetchMenu = async () => {
     const data = await fetch(REST_MENU_URL + resId);
-
+    console.log(REST_MENU_URL + resId);
     const json = await data.json();
-
+    console.log(restInfo?.cards[0]?.card.card.info);
     setRestInfo(json.data);
   };
 

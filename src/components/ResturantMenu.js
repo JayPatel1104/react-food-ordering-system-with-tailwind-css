@@ -7,9 +7,8 @@ import Shimmer from "./Shimmer";
 const ResturantMenu = () => {
   const { resId } = useParams();
   const restInfo = useResturantInfo(resId);
-
-  if (restInfo === null) return <Shimmer></Shimmer>;
   console.log(restInfo?.cards[0]?.card.card.info);
+  if (!restInfo?.cards[0]?.card?.card?.info) return <Shimmer></Shimmer>;
 
   const { name, cuisines, areaName, avgRating, cloudinaryImageId } =
     restInfo?.cards[0]?.card?.card?.info;
