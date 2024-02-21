@@ -7,11 +7,11 @@ import Shimmer from "./Shimmer";
 const ResturantMenu = () => {
   const { resId } = useParams();
   const restInfo = useResturantInfo(resId);
-  console.log(restInfo?.cards[0]?.card.card.info);
-  if (!restInfo?.cards[0]?.card?.card?.info) return <Shimmer></Shimmer>;
+  // return <Shimmer></Shimmer>;
+  if (restInfo === null) return <Shimmer></Shimmer>;
 
   const { name, cuisines, areaName, avgRating, cloudinaryImageId } =
-    restInfo?.cards[0]?.card?.card?.info;
+    restInfo[2]?.card?.card?.info;
 
   return (
     <div style={{ margin: "100px" }}>
@@ -33,30 +33,29 @@ const ResturantMenu = () => {
         </h4>
         <h4 className="rest-name">
           <i className="fa-regular fa-clock" id="icon-timer"></i>
-          {String(restInfo.cards[0].card.card.info.sla.deliveryTime) +
-            " minutes"}
+          {String(restInfo[2].card.card.info.sla.deliveryTime) + " minutes"}
         </h4>
       </div>
 
       <table>
         <tbody>
-          {restInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards.map(
+          {restInfo[4].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards.map(
             (res) => (
               <tr key={res.card.info.id}>
                 <td className="rest-name">
-                  {res.card.info.isVeg ? (
-                    <img
-                      src="https://i.pinimg.com/originals/e4/1f/f3/e41ff3b10a26b097602560180fb91a62.png"
-                      alt=""
-                      style={{ height: "50px", width: "50px" }}
-                    />
-                  ) : (
-                    <img
-                      src="https://openclipart.org/image/800px/304247"
-                      alt=""
-                      style={{ height: "50px", width: "50px" }}
-                    />
-                  )}
+                  {/* {res.card.info.isVeg ? (
+                  <img
+                    src="https://i.pinimg.com/originals/e4/1f/f3/e41ff3b10a26b097602560180fb91a62.png"
+                    alt=""
+                    style={{ height: "50px", width: "50px" }}
+                  />
+                ) : (
+                  <img
+                    src="https://openclipart.org/image/800px/304247"
+                    alt=""
+                    style={{ height: "50px", width: "50px" }}
+                  />
+                )} */}
 
                   <h2>{res.card.info.name}</h2>
                   <h3>
