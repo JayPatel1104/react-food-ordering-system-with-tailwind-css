@@ -8,6 +8,14 @@ Please run the following commands before executing this app:
 
 4. npm i react-router-dom
 
+5. npm install -D tailwindcss postcss
+
+6. npx tailwindcss init
+
+# Guide to configure tailwind css
+
+- https://tailwindcss.com/docs/guides/parcel
+
 Use the following command to execute this app:
 
 npm start
